@@ -18,7 +18,7 @@ This is a user authentication and management system built with Flask and SQLAlch
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/Faithmanex/Flask-User-Authentication.git`
-2. Navigate to the project directory: `cd user-authentication`
+2. Navigate to the project directory: `cd Flask-User-Authentication`
 3. Install the required dependencies: `pip install -r requirements.txt`
 4. Start the application: `python app.py`
 5. Access the application in your browser at `http://localhost:5000`
