@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registered Users</title>
+</head>
+<body>
+    <h1>Registered Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Admin</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ "Yes" if user.is_admin else "No" }}</td>
+                    <td>
+                        {% if not user.is_blocked %}
+                            <form action="/admin/block_user/{{ user.id }}" method="post">
+                                <button type="submit">Block User</button>
+                            </form>
+                        {% else %}
+                            <form action="/admin/unblock_user/{{ user.id }}" method="post">
+                                <button type="submit">Unblock User</button>
+                            </form>
+                        {% endif %}
+                        
+                    </td>
+                    <td>
+                        <form action="/admin/delete_user/{{ user.id }}" method="post"> 
+                            <button>Delete User</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/admin">Go back to Admin Dashboard</a>
+</body>
+</html>
